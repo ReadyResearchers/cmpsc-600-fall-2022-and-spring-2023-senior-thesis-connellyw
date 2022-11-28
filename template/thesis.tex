@@ -1,0 +1,150 @@
+\documentclass[
+$if(fontsize)$
+  $fontsize$,
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+]{$documentclass$}
+
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$ 
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{longtable,booktabs,array}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{titling}
+\usepackage{emptypage}
+\usepackage{graphicx}
+\usepackage{ulem}
+\usepackage{natbib}
+
+\normalem
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{eso-pic} % For the background picture on the title page
+  \newcommand\BackgroundPic{%
+  \put(0,-120){%
+  \parbox[b][\paperheight]{\paperwidth}{%
+  \vfill
+  \centering
+  \includegraphics[width=5in]{images/logo}%
+  \vfill
+}}}
+
+$for(header-includes)$
+  $header-includes$
+$endfor$
+
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(csquotes)$
+\usepackage{csquotes}
+$endif$
+
+\begin{document}
+
+  \pagestyle{empty} % No page numbers
+  \begin{titlepage}
+  \AddToShipoutPicture*{\BackgroundPic}
+    \begin{center}
+      \vfill
+      {\large \scshape Allegheny College \\ Department of Computer Science }\\[1.4cm]
+      {\Large Senior Thesis}\\[0.5cm]
+      \rule{\textwidth}{1.5pt}\\[0cm]
+      {\huge \bfseries $title$ \par \ }\\[-0.5cm]
+      \rule{\textwidth}{1.5pt}\\[2.5cm]
+      \hfill  by\\[1cm]
+      \hfill  {\large \bfseries $author$}\\
+      \vfill
+      {\hfill \large Project Supervisor: \textbf{$firstreader$}} \\ 
+      {\hfill \large Co-Supervisor: \textbf{$secondreader$}} \\
+      \vspace{1cm}
+      \hfill  $date$
+    \end{center}
+  \end{titlepage}
+
+$if(abstract)$
+\pagestyle{empty}
+\begin{abstract}
+  $abstract$
+\end{abstract}
+$endif$
+
+$if(toc)$
+\pagestyle{empty}
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+\pagestyle{plain}
+$body$
+
+\end{document}
