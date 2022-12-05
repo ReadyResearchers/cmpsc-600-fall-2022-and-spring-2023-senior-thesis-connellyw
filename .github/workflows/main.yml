@@ -43,3 +43,4 @@ jobs:
           asset_path: output/SeniorThesis.pdf
           asset_name: SeniorThesis.pdf
           asset_content_type: pdf
+          allowUpdates: "true"
