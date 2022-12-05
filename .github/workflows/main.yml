@@ -11,6 +11,8 @@ jobs:
         uses: nikeee/setup-pandoc@v1
       - name: Install pandoc-citeproc
         run: sudo apt-get -qq update && sudo apt-get install -y pandoc-citeproc
+      - name: Install fuse
+        run: sudo apt-get install fuse libfuse2
       - name: Install tectonic
         uses: wtfjoke/setup-tectonic@v1
         with:
