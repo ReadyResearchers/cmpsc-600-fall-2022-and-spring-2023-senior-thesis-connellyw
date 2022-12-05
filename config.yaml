@@ -2,11 +2,11 @@
 # https://maehr.github.io/academic-pandoc-template/
 
 # Project-specific values
-title: 'Senior Thesis'
-author: 'Student Name'
-date: '22 July 2022'
-firstreader: 'First Reader'
-secondreader: 'Second Reader'
+title: 'CoinComplete: A Principle Component Analysis machine learning tool used for Cryptocurrency investing.'
+author: 'Liam Connelly'
+date: '5 December 2022'
+firstreader: 'Kafphhammer'
+secondreader: 'Luman'
 logo: 'images/logo'
 
 # Template Values: DO NOT TOUCH
