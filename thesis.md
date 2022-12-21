@@ -9,7 +9,7 @@ Challenges have arouse throughout this research.  For instance, I needed to deci
 The ethical considerations for this project include how this would affect the market.  Having something that was proven successful like this could lead to an unfair advantage.  This would, if done on a large enough scale, could disrupt the market that the program had studied.  This would make the program not invest based on the new market but invest in the one it had studied.  This might cause problems with the program.  Another ethical consideration is how users would overuse a system like this and potentially crash the entire network.  If something like this became too popular and the Binance infrastructure is unable to support the traffic, it could lead to issues.  Looking at these issues closely in the paper will reveal how I addressed issues in my research.
 
 ## Section 1 Completed Work
-### Binance API and Data collected
+### Binance API and Data Collected
 
 The Binance API offers a lot of tools for me to work with to gather the necessary data.  To connect to the Binance API, a developer account is first needed to connect to their servers.  To apply for this, it is required that a user must make an account and submit a form.  Once the form is submitted, it is accepted and a programmer is able to use the tool.  When a new project is created through Binance, an API key and secret key are generated to identify the tool.  These keys are added to a Python script that holds them so they can be accessed by the main Python program.  Both of these keys ensure secure access to the Binance servers where traffic and queries can be tracked.  
 
@@ -30,9 +30,7 @@ Another variable that is useful to study market information is the Taker Buy Sel
 The Final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
 ![so1](images/sample output.jpg)
-Figure 1: Sample Data Output
-
-Data is listed in tables as described above.
+Figure 1: Sample Data Output - Data is listed in tables as described above.
 
 ### Sorting and Cleaning Data
 	
@@ -49,34 +47,28 @@ It first starts by normalizing the data.  While we had already done this before,
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
 ![pca](images/pca.png)
-Figure 2: PCA Model Example
-
-PCA provides dimensionality-reduction great for the data being used in my research.  
+Figure 2: PCA Model Example - PCA provides dimensionality-reduction great for the data being used in my research.  
 
 Now that the eigenvalues are in descending order, it will allow the program to find the components in order of significance.  Each of the eigenvectors are transformed in the program.  This is so that each component can be filter by usefulness.  The eigenvector with lesser significance will be removed from the PCA model.  It is important to note that doing this does create some data loss.  While this is important to take into consideration, the amount that was lost is not really a relevant problem.  
 
 The final step of the PCA model is the recast the data along the component’s axes.  This is done to reorganize the data so that it corresponds to the original axes. It is important to do this so that graphs can be compared to each other over time.  Once the data is standardized, we can not work on displaying the information.
 
-### Displaying the information
+### Displaying the Information
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
 ![g2](images/graph2.png)
-Figure 3: Basic Sample Graph
+Figure 3: Basic Sample Graph - This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
 
-This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
-
-![so](images/sample output.jpg)
-Figure 4: Sample Heat Map From Data
-
-This graph is better than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
+![sg](images/sample graph1.jpg)
+Figure 4: Sample Heat Map From Data - This graph is better than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
 ## Motivation
 
 The motivation for the project is the every increasing presence of cryptocurrency in our world.  As the technology develops, more and more uses for it are discovered.  Early research and development of tools like this are both something that is cutting edge.  Cryptocurrency markets behave similar to traditional stock markets.  However,  they are much more volatile as trading never stops.  Research like this stand to gain a better understanding of how these markets work. Bitcoin prices have grown more than 120% in 2016, reaching to a level of more than $20,000 from $900 in the year 2017. [@akyildirim2021research] As such, it has been experiencing an increase in possibilities for investors to make far greater gains than any other financial asset class.
 
 ![market](images/market.png)
-Figure 5: Top Four Traded Coin's Market Activity [@akyildirim2021research] This shows that there is a future in cryptocurrency.  More and more people are interested and investing.
+Figure 5: Top Four Traded Coin's Market Activity [@akyildirim2021research] - This shows that there is a future in cryptocurrency.  More and more people are interested and investing.
 
 ## Goals of the Project
 
@@ -86,7 +78,8 @@ The goal of this project is to predict and forecast the close price of Ethereum 
 
 One of the Ethical considerations of this tool is that it could possible be abused.  If this technology was used by someone with a large enough money, they could then buy the supply of a coin up and manipulate the price.  While examples of this have happened before, it is rare that many of these rugpull projects gain any traction.  However, it still is a problem that must be considered.  Another problem with technology like this overuse.  While a few people doing research does not really effect the market, if a tool like this was used by enough people, it could cause the market to become even more unstable.  This would be because if everyone was being told to invest and withdraw their money at the same time, it breaks the market.  While this problem would kind of take care of itself.  This is because the market the program is build for would no longer exist making the tool obsolete.  This is something that is again very unlikely, but worth considering.  A great way to work around this is to make this open source and available to everyone.  If no one owns this technology, no one person can profit from it.
 
-# Related work  
+# Related Work
+## Positive Research Findings
 
 One of the related works that I have taken a look at was the research done by the Annals of Operations Research team.  The study used machine learning to take a look at twelve different coins.  Using four different classification algorithms, it predicted future market activity.  They found from this that they were accurately able to predict future market activity 70% of the time in the short term. [@akyildirim2021research] This proves that a profitable algorithm is achievable.  I reviewed this study for my own research and applied my own similar techniques to analyze.  For instance, when considering the data that I needed to collect, consulting this study was valuable in my research. In the study, Using machine learning for cryptocurrency trading, the scope of the research looked at different Twitter and market activity for Bitcoin, Ethereum, Ripple, and Litecoin. [@sun2019research] This study used a neural network to determine market indicators.  They found that it was able to accurately predict market activity using this data.  What I found interesting in this study is that each of the different coins had different success rates.  This demonstrates that different coins have different social environments that could be hard to predict.  Another thing to note is that the market activity and social indicators are combined.  This leaves some questions about what really affects the market.  I considered this in my research when determining the scope of my project.  I decided that I wanted to narrow down my research to market activity. 
 
@@ -95,7 +88,7 @@ My project was influenced by the study, Forecasting cryptocurrency prices time s
 The project, Machine learning the cryptocurrency market, helped me figure out the scope of my project.  It studied 1,681 currencies using two different models.  The first one was long short-term memory models which it was found to be effective at predicting.  The other was a Batesian neural network. [@alessandretti2018research] While this study found that machine learning was able to predict market activity, it looked at way too many subjects for my research here.  Just to keep the scope of the project doable it was decided that this research would focus on just two currencies.  It also made me take into account transaction fees when trading.  This is important because it is something that must be overcome if profitable trading is going to be achieved.  I decided that this is something that I would like to examine in my own research. 
 
 ![research1](images/research1.png)
-Figure 6: Cumulative Returns Found In Study. Te cumulative returns obtained under the Sharpe ratio optimization (a) and the geometric mean optimization
+Figure 6: Cumulative Returns Found In Study. - The cumulative returns obtained under the Sharpe ratio optimization (a) and the geometric mean optimization
 (b) for the baseline (blue line), Method 1 (orange line), Method 2 (green line), and Method 3 (red line). Analyses are performed considering
 prices in BTC. [@akyildirim2021research] 
 
@@ -106,11 +99,11 @@ The research paper, Ascertaining price formation in cryptocurrency markets with 
 The study, Predicting Ethereum prices with machine learning based on Blockchain information, differentiates itself by taking just a look at Ethereum.  It used machine learning models to reveal that it is possible to predict Ethereum prices using economic factors.  The study noted that Ethereum and Bitcoin have different movement patterns.  This would create a difference in the techniques needed to predict currency prices.  The study also found that maco-economic facts significantly improve the prediction accuracy of Ethereum prices. [@kim2021research] Two different machine-learning techniques were applied to the data.  From the findings, the researchers found that trading with consideration of Blockchain information was profitable.  This is something that I considered for my own research.  I was able to learn from this to be able to choose the variables I needed for my research. The paper, Comparative performance of machine learning algorithms for cryptocurrency forecasting, had a strong focus on studying the performance of machine learning algorithms.  The researchers looked at six different cryptocurrencies to study the market data. It compared Support Vector Machines (SVM) and Artificial Neural Networks (ANNs).  SVM was proven to be the most accurate in being able to predict market movements at 95.5% accuracy. [@hitam2018research] This study proved that by using machine learning, it is possible to predict future price movements.  Adapting what they learned in my research, I have considered the options of my machine learning algorithm.  After careful consideration, I decided to focus my research on PCA models.
 
 
-### 2.1 Research That Failed
+### Research That Failed
 
 The article, An approach to predict and forecast the price of constituents and index of cryptocurrency using machine learning, takes a look at Bitcoin, Digital Cash, and Ripple and uses four different neural networks to forecast the price.  Most of the models were not that successful at predicting market activity. [@chowdhury2020research] However, one model was 92.4% accurate at creating profitable trades.  This paper made me consider what to look at when gathering my data to use for predictions.  For instance, it made me look at different variables that I would include in my research.  Different models had varying successes but all used the same variables.  This means that this can be translated into a different model to the usefulness of it.  This research made me consider what to include and take a look at for this project. Automated cryptocurrencies prices prediction using machine learning looks at a few different currencies using a  Long Short-Term Memory model.  This study looked at the short-term viability of predictions.  After studying seven cryptocurrencies, the researchers determined that if they used more information, the study would be more accurate.  While their findings did show that their machine learning algorithm was able to predict at a much higher success rate than random,  some data for currencies were limited. [@mittal2018research] Due to the trading volume of smaller coins,  it makes it harder to study market data when there is less of it.  This made me consider what coins I wanted to use in my research.  Using coins with enough trading data is important because it allows me to have enough data to make accurate predictions.
 
-### 2.2 Research Reviews
+### Research Reviews
 
 The research called, Past, present, and future of the application of machine learning in cryptocurrency research, conducted a review on multiple different machine learning algorithm research papers.  This offered a unique approach because it was coming from more a general point of view.  Many different machine-learning models were studied and the paper discussed the strengths and weaknesses found in different models.  This was very important when considering the model I wanted to use for my research.  An important thing to take away from this paper is to find that some research papers’ models were overfitted with their variables. [@ren2022research] This will lead to invalid predictors and wasted computational resources.  It also makes the model less portable.  The study found that there was a severe generalization of data in most machine-learning research studies.  I took this into careful consideration when developing what variables I wanted to include in my research. Another important study for my research was the Price Movement Prediction of Cryptocurrencies Using Sentiment Analysis and Machine Learning This study used basic techniques to calculate whether to invest in the market or not.  This research considered social implications by scraping Twitter as well.  The study used basic machine learning and social influence to measure a way to create an indication.  It took a look at BTC in the research.  This study found that it was not really more accurately able to predict than randomly investing. [@valencia2019research]  I considered this when I was working on my project.  I originally was going to develop a similar web scraping tool to gain a better understanding of when people were going to invest.  These, however, along with other studies provide enough evidence to come to the conclusion that monitoring social indicators does not translate well to predicting the market. I decided to cut this part from my research.
 
