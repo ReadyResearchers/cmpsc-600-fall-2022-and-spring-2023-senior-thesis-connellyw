@@ -29,8 +29,8 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The Final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
-![so1](images/sample output.jpg)
-Figure 1: Sample Data Output - Data is listed in tables as described above.
+![Sample Data Output[@so1]](images/sample output.jpg)
+Data is listed in tables as described above.
 
 ### Sorting and Cleaning Data
 	
@@ -46,8 +46,8 @@ It first starts by normalizing the data.  While we had already done this before,
 
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
-![pca](images/pca.png)
-Figure 2: PCA Model Example - PCA provides dimensionality-reduction great for the data being used in my research.  
+![PCA Model Example[@pca]](images/pca.png)
+PCA provides dimensionality-reduction great for the data being used in my research.  
 
 Now that the eigenvalues are in descending order, it will allow the program to find the components in order of significance.  Each of the eigenvectors are transformed in the program.  This is so that each component can be filter by usefulness.  The eigenvector with lesser significance will be removed from the PCA model.  It is important to note that doing this does create some data loss.  While this is important to take into consideration, the amount that was lost is not really a relevant problem.  
 
@@ -67,8 +67,18 @@ Figure 4: Sample Heat Map From Data - This graph is better than Figure 3.  This 
 
 The motivation for the project is the every increasing presence of cryptocurrency in our world.  As the technology develops, more and more uses for it are discovered.  Early research and development of tools like this are both something that is cutting edge.  Cryptocurrency markets behave similar to traditional stock markets.  However,  they are much more volatile as trading never stops.  Research like this stand to gain a better understanding of how these markets work. Bitcoin prices have grown more than 120% in 2016, reaching to a level of more than $20,000 from $900 in the year 2017. [@akyildirim2021research] As such, it has been experiencing an increase in possibilities for investors to make far greater gains than any other financial asset class.
 
-![market](images/market.png)
-Figure 5: Top Four Traded Coin's Market Activity [@akyildirim2021research] - This shows that there is a future in cryptocurrency.  More and more people are interested and investing.
+![Top Four Traded Coin's Market Activity[@akyildirim2021research]](images/market.png)
+[@akyildirim2021research] - This shows that there is a future in cryptocurrency.  More and more people are interested and investing.
+
+There are several real world potential justifications for creating a cryptocurrency prediction machine learning program to study the market. One is that it could help investors make more informed decisions about when to buy or sell different cryptocurrencies. Another is that it could help traders identify patterns and trends in the market that they might not otherwise be able to detect. Additionally, a machine learning program could potentially be used to analyze large amounts of data more quickly and accurately than a human could, which could lead to more accurate predictions about the future price of different cryptocurrencies.
+
+Using Principal Component Analysis (PCA) in conjunction with a machine learning model for cryptocurrency prediction could be beneficial in several ways.
+
+PCA is a technique that is used to reduce the dimensionality of a dataset by identifying the underlying patterns or features that explain the most variance in the data. This can be useful in the context of cryptocurrency prediction because it can help to identify the most important factors that influence the price of a given cryptocurrency.
+
+By incorporating PCA into the machine learning model, the model may be able to learn from a smaller set of features, which can improve the model's performance and reduce the risk of overfitting. Additionally, PCA can help to identify correlations between different features in the dataset, which can help to identify which features are most important for making accurate predictions.
+
+Therefore, using PCA in conjunction with a machine learning model for cryptocurrency prediction can help to improve the model's performance by reducing the dimensionality of the dataset, identifying the most important features, and uncovering the underlying patterns or relationships in the data.
 
 ## Goals of the Project
 
@@ -76,7 +86,13 @@ The goal of this project is to predict and forecast the close price of Ethereum 
 
 ## Ethical Implications
 
-One of the Ethical considerations of this tool is that it could possible be abused.  If this technology was used by someone with a large enough money, they could then buy the supply of a coin up and manipulate the price.  While examples of this have happened before, it is rare that many of these rugpull projects gain any traction.  However, it still is a problem that must be considered.  Another problem with technology like this overuse.  While a few people doing research does not really effect the market, if a tool like this was used by enough people, it could cause the market to become even more unstable.  This would be because if everyone was being told to invest and withdraw their money at the same time, it breaks the market.  While this problem would kind of take care of itself.  This is because the market the program is build for would no longer exist making the tool obsolete.  This is something that is again very unlikely, but worth considering.  A great way to work around this is to make this open source and available to everyone.  If no one owns this technology, no one person can profit from it.
+One of the Ethical considerations of this tool is that machine learning models can be used to make predictions about future prices of cryptocurrencies, they can also be used to manipulate the market. For example, a group of investors could use a machine learning model to make predictions about the price of a particular cryptocurrency, and then use that information to manipulate the market and make a profit.  While examples of this have happened before in the stock market, it is almost guaranteed that it will happen in the crypto currency field.
+
+Another ethical implication is when using the PCA technique, it reduces the dimensionality of a dataset, but it can also makes it more difficult to understand how the model is making predictions. This lack of interpretability can be a concern when it comes to making decisions about financial investments, as it can be difficult to know whether the predictions made by the model are accurate or not.  It also makes finding any specific issues with the data challenging as all of the values are combined together.
+
+Another problem with technology like this overuse.  While a few people doing research does not really effect the market, if a tool like this was used by enough people, it could cause the market to become even more unstable.  This would be because if everyone was being told to invest and withdraw their money at the same time, it breaks the market.  While this problem would kind of take care of itself.  This is because the market the program is build for would no longer exist making the tool obsolete.  This is something that is again very unlikely, but worth considering.  A great way to work around this is to make this open source and available to everyone.  If no one owns this technology, no one person can profit from it.
+
+With the heavy increase of cryptocurrency attention, it has also drawn the eyes of the government.  If market regulations were put into place in the future, with would without a doubt change the market forever.  The use of PCA based models for cryptocurrency prediction may be subject to regulations, and it is important to be aware of and comply with any relevant laws or regulations created in the future..
 
 # Related Work
 ## Positive Research Findings
@@ -87,8 +103,8 @@ My project was influenced by the study, Forecasting cryptocurrency prices time s
 
 The project, Machine learning the cryptocurrency market, helped me figure out the scope of my project.  It studied 1,681 currencies using two different models.  The first one was long short-term memory models which it was found to be effective at predicting.  The other was a Batesian neural network. [@alessandretti2018research] While this study found that machine learning was able to predict market activity, it looked at way too many subjects for my research here.  Just to keep the scope of the project doable it was decided that this research would focus on just two currencies.  It also made me take into account transaction fees when trading.  This is important because it is something that must be overcome if profitable trading is going to be achieved.  I decided that this is something that I would like to examine in my own research. 
 
-![research1](images/research1.png)
-Figure 6: Cumulative Returns Found In Study. - The cumulative returns obtained under the Sharpe ratio optimization (a) and the geometric mean optimization
+![Cumulative Returns Found In Study [@akyildirim2021research]](images/research1.png)
+The cumulative returns obtained under the Sharpe ratio optimization (a) and the geometric mean optimization
 (b) for the baseline (blue line), Method 1 (orange line), Method 2 (green line), and Method 3 (red line). Analyses are performed considering
 prices in BTC. [@akyildirim2021research] 
 
