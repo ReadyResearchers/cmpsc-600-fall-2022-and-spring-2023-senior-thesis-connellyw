@@ -31,7 +31,7 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The Final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
-![Sample Data Output[@so1]](images/sample output.jpg)
+![Sample Data Output[@connelly2023research]](images/sample output.jpg)
 Data is listed in tables as described above.
 
 ### Sorting and Cleaning Data
@@ -48,7 +48,7 @@ It first starts by normalizing the data.  While we had already done this before,
 
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
-![PCA Model Example[@pca]](images/pca.png)
+![PCA Model Example[@connelly2023research]](images/pca.png)
 PCA provides dimensionality-reduction great for the data being used in my research.  
 
 Now that the eigenvalues are in descending order, it will allow the program to find the components in order of significance.  Each of the eigenvectors are transformed in the program.  This is so that each component can be filter by usefulness.  The eigenvector with lesser significance will be removed from the PCA model.  It is important to note that doing this does create some data loss.  While this is important to take into consideration, the amount that was lost is not really a relevant problem.  
@@ -59,11 +59,11 @@ The final step of the PCA model is the recast the data along the component’s a
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
-![g2](images/graph2.png)
-Figure 3: Basic Sample Graph - This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
+![Basic Sample Graph[@connelly2023research]](images/graph2.png)
+ - This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
 
-![sg](images/sample graph1.jpg)
-Figure 4: Sample Heat Map From Data - This graph is better than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
+![Sample Heat Map From Data[@connelly2023research]](images/sample graph1.jpg)
+ - This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
 ## Motivation
 
@@ -119,7 +119,7 @@ The research paper, Ascertaining price formation in cryptocurrency markets with 
 The study, Predicting Ethereum prices with machine learning based on Blockchain information, differentiates itself by taking just a look at Ethereum.  It used machine learning models to reveal that it is possible to predict Ethereum prices using economic factors.  The study noted that Ethereum and Bitcoin have different movement patterns.  This would create a difference in the techniques needed to predict currency prices.  The study also found that maco-economic facts significantly improve the prediction accuracy of Ethereum prices. [@kim2021research] Two different machine-learning techniques were applied to the data.  From the findings, the researchers found that trading with consideration of Blockchain information was profitable.  This is something that I considered for my own research.  I was able to learn from this to be able to choose the variables I needed for my research. The paper, Comparative performance of machine learning algorithms for cryptocurrency forecasting, had a strong focus on studying the performance of machine learning algorithms.  The researchers looked at six different cryptocurrencies to study the market data. It compared Support Vector Machines (SVM) and Artificial Neural Networks (ANNs).  SVM was proven to be the most accurate in being able to predict market movements at 95.5% accuracy. [@hitam2018research] This study proved that by using machine learning, it is possible to predict future price movements.  Adapting what they learned in my research, I have considered the options of my machine learning algorithm.  After careful consideration, I decided to focus my research on PCA models.
 
 
-### Research That Failed
+## Research That Failed
 
 The article, An approach to predict and forecast the price of constituents and index of cryptocurrency using machine learning, takes a look at Bitcoin, Digital Cash, and Ripple and uses four different neural networks to forecast the price.  Most of the models were not that successful at predicting market activity. [@chowdhury2020research] However, one model was 92.4% accurate at creating profitable trades.  This paper made me consider what to look at when gathering my data to use for predictions.  For instance, it made me look at different variables that I would include in my research.  Different models had varying successes but all used the same variables.  This means that this can be translated into a different model to the usefulness of it.  This research made me consider what to include and take a look at for this project. Automated cryptocurrencies prices prediction using machine learning looks at a few different currencies using a  Long Short-Term Memory model.  This study looked at the short-term viability of predictions.  After studying seven cryptocurrencies, the researchers determined that if they used more information, the study would be more accurate.  While their findings did show that their machine learning algorithm was able to predict at a much higher success rate than random,  some data for currencies were limited. [@mittal2018research] Due to the trading volume of smaller coins,  it makes it harder to study market data when there is less of it.  This made me consider what coins I wanted to use in my research.  Using coins with enough trading data is important because it allows me to have enough data to make accurate predictions.
 
