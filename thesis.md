@@ -145,22 +145,61 @@ It is designed to be user-friendly and easy to use, even for those with little t
 
 # Method of approach
 
-This chapter answers the "how" question - how did you complete your project,
-including the overall design of your study, details of the algorithms and tools you
-have used, etc.  Use technical diagrams, equations, algorithms, and paragraphs of text
-to describe the research that you have completed. Be sure to number all figures and
-tables and to explicitly refer to them in your text.
+## Similar Tools
 
-This should contain:
+### Gekko Trading Tool
 
-* lists
-* with points
-* and more points
-  * possibly subpoints
+One of the major cons of Gekko is its complexity.  The platform is designed to be used by experienced traders and developers and may be challenging to use for those who are not familiar with cryptocurrency trading or programming.  The platform requires a certain level of technical expertise, which can be difficult for inexperienced users to attain.  Integration is also a concern when using Gekko.  Integrating Gekko with other trading platforms can be difficult, and the platform may not be compatible with all platforms.  This can limit its ability to be used as a comprehensive trading solution.  This is unlike mine where any coin on the Binance.US trading platform can be accessed easily.
 
-For those projects whose implications address social or moral issues (i.e. ethical
-standards, causes, effects), you will want to use this section to describe how you
-actively mitigated or considered these issues.
+Another limitation of Gekko is its limited scalability.  The platform is designed to work with smaller trading accounts, which can limit its scalability for larger accounts.  This means that users who are looking to trade with larger amounts of money may need to look for alternative solutions.  The tool developed for this project is able to be scaled to trade as much as is wanted.  Since the tool is connected to a user’s Binance account, any order manually able to be done can be done automatically. 
+
+Most of the important information needed to create market predictions is also kept behind a paywall.  Gekko plus offers a lot more information than what is included in the free version.  Since my project is free and offers all of this data for free, my tool will allow people not willing to pay a monthly subscription fee to conduct market research.  The tool’s creator also is no longer updating this tool.  This creates a limited lifespan of the product.  This is unlike mine where it is only limited by the Binance.US API. Providing it does not change, my tool should continue to work.
+
+![Gekko Trading Tool Dashboard[@connelly2023research]](images/gekko.png) - Tool offers an easy to use interface.  Very little presets offers so creation of trading algorithm is needed.
+
+### Pionex Crypto Trading Bot Tool
+
+Pionex is a popular cryptocurrency trading bot that provides automated trading and analysis tools for users. While it has many benefits, there are also some drawbacks to using Pionex as a trading tool.  It is a product that requires a subscription fee to use.  This tool does not have a free version.  Unlike my tool which is free.  
+
+A limitation of the tool itself is its lack of transparency.  The platform operates as a black box, which means that users do not have access to the underlying algorithms or trading strategies.  This can make it difficult for users to understand how the platform is making trades and to assess its performance.
+
+Maintenance is also a consideration when using Pionex. As a proprietary platform, users are dependent on the provider for maintenance and updates. This can be an issue for users who are looking for a more flexible and customizable solution.  Unlike my tool which is static, and does not change.
+
+![Pionex Crypto Trading Bot Dashboard[@connelly2023research]](images/Pionex.png) - Dashboard offers a lot of information at first glance.  In the bottom right, different preset trading bots can be seen.  Note this is the paid version.
+
+## My Tool Workflow
+
+The general workflow of my project is only five steps.  Reducing the steps needed to take for a tool to work reduces the points of failure.  The first step is to collect the data from the Binance.US API.  Specifically, the eleven variables previously mentioned in chapter one.  Once, that data is collected it must be normalized and stored.  This allows the data to be worked with universally with my tool.  The data is then taken and given to the PCA model.  The data returned provides points on a graph to use as predictions later.  The data is then displayed on a graph using Plotly to create complex graphs.  Predictions then can be inferred from the given market data.  While this is a simple process, its simplicity is what makes it able to handle any coin on the Binance.US exchange.
+
+![Sample Tool Workflow[@connelly2023research]](images/Crypto flow.png) - Visualization of this tool's workflow as described above.
+
+## Tools Used In This Project
+
+### Binance.US Python API
+
+To understand why I choose to use this API over others, the features of the tool must be examined.  The Binance.US API utilizes the REST (Representational State Transfer) protocol, which is a widely adopted standard for web-based APIs.  This protocol enables the API to receive requests and send responses over the internet using the standard HTTP (Hypertext Transfer Protocol) methods, such as GET, POST, and PUT.
+
+When using the Binance.US Python API, developers must first obtain an API key from the Binance.US website.  The API key is used to authenticate the API requests and to ensure that only authorized users have access to the platform's data and functionality.  Once the API key has been obtained, developers can use it in their Python code to interact with the Binance.US platform.  For example, they can use the API to retrieve information about their account, such as the balance of a particular asset, the current price of an asset, or the list of open orders. The API also provides access to real-time market data, such as the price of an asset, the 24-hour volume, and the order book. This data can be used by developers to build trading algorithms and make informed trading decisions.
+
+This is another reason I picked the Binance.US Python API, it has the ability to execute trades.  Developers can use the API to place orders, manage open orders, and view past trades.  This functionality allows them to automate their trading strategies and execute trades more efficiently.
+
+### Scikit-learn
+
+Incorporating scikit-learn with my tool offers me a lot of options to process trades.   For my project, I wanted to just focus on the PCA (Principal Component Analysis).  Its popular and well-documented library for machine learning makes it an attractive choice for implementing PCA in a crypto market machine learning tool.  Sklearn provides a convenient and efficient implementation of PCA, along with a range of other machine learning algorithms and tools.  This makes it easier to experiment with different approaches and fine-tune the model to the specific needs of the cryptocurrency market 
+
+PCA is a technique for dimensionality reduction, which aims to capture the most important patterns in the data by transforming it into a smaller number of components.  This transformation can improve the performance of machine learning models by reducing noise and removing irrelevant information from the data.  In my project, I use it to interpret the data collected from the Binance.US Python API.
+
+### Plotly
+
+Plotly is a data visualization library that can be used to create interactive and informative charts, making it a valuable tool when building a crypto market machine learning tool.  The cryptocurrency market is characterized by large amounts of data, and visualizing this data can help to make sense of complex patterns and trends.  Plotly provides a user-friendly and flexible interface that allows users to quickly and easily create charts that can be used to analyze the cryptocurrency market.
+
+Another reason to use Plotly is its ability to handle large and complex datasets.  Plotly is designed to handle large amounts of data and provides a range of tools for cleaning and transforming data. This includes options for customizing the appearance of the chart, such as colors, labels, and annotations, as well as options for adjusting the layout and format of the chart.  Plotly makes it easier to work with real-world datasets and to create charts that accurately reflect the underlying data.  This is very important when working with such large datasets gathered from the crypto market.
+
+## Addressing Ethical Considerations
+
+Privacy is a key ethical consideration. Since machine learning algorithms can collect and analyze large amounts of data, which may include personal information. It is important to ensure that this information is collected, stored, and used in a way that respects privacy and data protection laws.  Since my tool only interacts on the client side and Binance.US all user information is secured through it.  No personal data is stored client side so it is secured through Binance.US.
+
+Another ethical consideration is the use of insider information.  Machine learning algorithms may be designed to use insider information to make trades.  This information could be used to gain an unfair advantage in the market and can result in harm to other traders and investors.  It is important to ensure that any machine learning tool is designed and used in a way that is transparent and fair to all market participants.  This is why I designed my tool to only look at previous market data.  There are no outside influences on the tool other than what has already happened.
 
 # Experiments
 
