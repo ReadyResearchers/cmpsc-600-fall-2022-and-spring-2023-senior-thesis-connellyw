@@ -183,6 +183,8 @@ When using the Binance.US Python API, developers must first obtain an API key fr
 
 This is another reason I picked the Binance.US Python API, it has the ability to execute trades.  Developers can use the API to place orders, manage open orders, and view past trades.  This functionality allows them to automate their trading strategies and execute trades more efficiently.
 
+The data returned from this looks like Figure 2.  This data table is an example of the data returned when the API is called.
+
 ### Scikit-learn
 
 Incorporating scikit-learn with my tool offers me a lot of options to process trades.   For my project, I wanted to just focus on the PCA (Principal Component Analysis).  Its popular and well-documented library for machine learning makes it an attractive choice for implementing PCA in a crypto market machine learning tool.  Sklearn provides a convenient and efficient implementation of PCA, along with a range of other machine learning algorithms and tools.  This makes it easier to experiment with different approaches and fine-tune the model to the specific needs of the cryptocurrency market 
@@ -195,11 +197,23 @@ Plotly is a data visualization library that can be used to create interactive an
 
 Another reason to use Plotly is its ability to handle large and complex datasets.  Plotly is designed to handle large amounts of data and provides a range of tools for cleaning and transforming data. This includes options for customizing the appearance of the chart, such as colors, labels, and annotations, as well as options for adjusting the layout and format of the chart.  Plotly makes it easier to work with real-world datasets and to create charts that accurately reflect the underlying data.  This is very important when working with such large datasets gathered from the crypto market.
 
+The expected output of the Plotly graphs is shown in figure 3.  This graph is one example of the expected output of the tool.
+
 ## Addressing Ethical Considerations
 
 Privacy is a key ethical consideration. Since machine learning algorithms can collect and analyze large amounts of data, which may include personal information. It is important to ensure that this information is collected, stored, and used in a way that respects privacy and data protection laws.  Since my tool only interacts on the client side and Binance.US all user information is secured through it.  No personal data is stored client side so it is secured through Binance.US.
 
-Another ethical consideration is the use of insider information.  Machine learning algorithms may be designed to use insider information to make trades.  This information could be used to gain an unfair advantage in the market and can result in harm to other traders and investors.  It is important to ensure that any machine learning tool is designed and used in a way that is transparent and fair to all market participants.  This is why I designed my tool to only look at previous market data.  There are no outside influences on the tool other than what has already happened.
+Another ethical consideration is the use of insider information.  Machine learning algorithms may be designed to use insider information to make trades.  This information could be used to gain an unfair advantage in the market and can result in harm to other traders and investors.  It is important to ensure that any machine learning tool is designed and used in a way that is transparent and fair to all market participants.  This is why I designed my tool to only look at previous market data.  There are no outside influences on the tool other than what has already happened in the market history.
+
+## Closing Remarks
+
+The main reason I choose to use the tools that I did came down to mainly documentation.  I choose to use well documented tools as these are more likely to stay updated and less likely to break in the future.  
+
+The Binance.US python api is very helpful because it allows a person to retrieve market data as well as conduction transaction on various block chains.  This version is specific to the US, making this tool inoperable without a US ip address.  The tool originally started with the Binance API, however support was discontinued to all US IP addresses after December, 31 2022.  
+
+Scikit-learn provides many easy to use machine learning tools.  This is a tool that is widely used and developed on.  Making it easy yet very functionable to develop a program with.  Using the PCA model from, Scikit-learn is a key backbone part of this project.
+
+Plotly is a tool that many similar programs use to display large data sets.  This is a tool that is perfect for the large market data set that I am trying to display.  
 
 # Experiments
 
