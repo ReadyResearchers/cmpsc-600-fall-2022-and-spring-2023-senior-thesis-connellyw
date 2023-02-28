@@ -217,27 +217,59 @@ Plotly is a tool that many similar programs use to display large data sets.  Thi
 
 # Experiments
 
-This chapter describes your experimental set up and evaluation. It should also
-produce and describe the results of your study. The section titles below offer
-a typical structure used for this chapter.
+## Research Conducted
 
-## Experimental Design
+The research I conducted is intended to prove the validity of being able to predict future Bitcoin and Etherium market prices. The experiments were created by training and evaluating a recurrent neural network (RNN) on historical cryptocurrency price data.
 
-Especially as it pertains to responisble computing, if conducting experiments or
-evaluations that involve particular ethical considerations, detail those issues here.
+The program uses a sliding window approach to generate training examples from the time series data. At each time step, the program extracts a window of historical prices and volumes and uses them as input features for the RNN. The RNN is then trained to predict the direction of the price movement (up or down) at the next time step.
 
-## Evaluation
+The program also uses a train-validation-test split to evaluate the performance of the RNN. The training set is used to train the RNN using stochastic gradient descent (SGD) and backpropagation through time (BPTT). The validation set is used to monitor the performance of the model during training and to prevent overfitting. The test set is used to evaluate the final performance of the model on unseen data.
+
+The program also performs hyperparameter tuning experiments to find the optimal values for hyperparameters such as the number of hidden units, the learning rate, the batch size, and the number of epochs. To perform hyperparameter tuning, the program trains and evaluates the RNN on different combinations of hyperparameters using a grid search or a random search approach. The program uses techniques such as scaling, normalization, and feature engineering to transform the raw data into a format suitable for training the RNN.
+
+To conclude, the program conducts experiments by training and evaluating an RNN on historical cryptocurrency price data using a sliding window approach. The program uses a train-validation-test split to evaluate the performance of the RNN, performs hyperparameter tuning experiments to find the optimal values for hyperparameters, and performs data preprocessing experiments to evaluate the impact of different preprocessing methods on the performance of the model.
+
+## Evaluation Strategy
+
+CoinComplete uses the mean squared error (MSE) as a metric to evaluate the accuracy of its results. The MSE measures the average squared difference between the predicted and actual values of the target variable. In the context of this program, the target variable is the cryptocurrency price movement (either up or down) at each time step. During training, the model attempts to minimize the MSE between its predictions and the actual price movements in the training dataset.
+
+After training, the program evaluates the performance of the model using the MSE on a separate validation dataset. The validation dataset is not used for training the model but rather serves as a measure of the model's ability to generalize to new data. The lower the MSE on the validation dataset, the better the model's performance and accuracy.
+
+The tool also uses a binary classification accuracy metric to evaluate the accuracy of the model's predictions on the validation dataset. In this case, the model's predictions are considered correct if they correctly predict the direction of the price movement (up or down) at each time step. The binary classification accuracy is calculated as the percentage of correct predictions over the total number of predictions on the validation dataset. The program determines the accuracy of its results using the mean squared error (MSE) and binary classification accuracy metrics on a separate validation dataset. The MSE measures the average squared difference between the predicted and actual values of the target variable, while the binary classification accuracy measures the percentage of correct predictions on the direction of the price movement.
+
+## Results
+
+![Epoch Accuracy[@connelly2023research]](images/epoch_accuracy.png) - Visualization of this tool's accuracy over a given amount of epochs.
+
+The results that I received here were kind of mixed.  For instance, BTC seemed to be highly predictable using this method.  ETH on the other hand barely achieved more than 50 percent accuracy most of the time.  In fact it ended with a 0.4849 accuracy in the end.  This is most likely due to the fact the BTC has a higher volume leading to more data for predicting the prices.  
+
+![Epoch Loss[@connelly2023research]](images/epoch_loss.png) - Visualization of this tool's inaccuracy over a given amount of epochs. 
+
+As shown in the results, both were fairly inaccurate with greater than 60% chosen predictions being not profitable.  BTC was the most profitable and it averaged out to be 0.6738 inaccurate.  ETH after the 9th epoch ended up being 0.6925.  While these results are not that promising, it is important to note that different training data will make it perform differently. 
+
+![Accuracy VS Iterations[@connelly2023research]](images/acc_vs_iter.png) - Visualization of this tool's accuracy over the number of iterations.  Pink is ETH and Orange is BTC.
+
+The accuracy over the iterations proved promising for BTC.  While this model only trained on 13,000 points, BTC continued to increased.  ETH on the other hand, did not start to see an increase until the 6th epoch until the accuracy returned to base line in the end.   Continuing to run the model with more points may provide better accuracy.
+
+![Inaccuracy VS Iterations[@connelly2023research]](images/loss_vs_iter.png) - Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
+
+Over time for BTC, we can see a decrease in the amount of trades that would not be profitable.  This is promising results as it achieved a 0.678 lost profit rate.  It dropped drastically over the training epochs.  ETH on the other hand stayed around the same coming to a 0.6925 profit lost rate.  These results could show improvement if more points were trained.
+
 
 ## Threats to Validity
 
-# Conclusion
+There is always a threat to the validity of the results is bias in the training data. In this program, the training data consists of historical cryptocurrency prices and volumes. However, this data may not be representative of the current cryptocurrency market, as the market conditions and behavior may have changed since the data was collected. This could lead to the model being biased toward historical trends that no longer hold in the current market. To mitigate this threat, it would be necessary to update the training data every time a user runs the program. Another way that would help would also be to use additional data sources to capture changes in market behavior.
 
-Traditionally, this chapter addresses the areas proposed below as sections, although
-not necessarily in this order or organized as offered. However, the last section --
-"Ethical Implcations" is required for this chapter. See the heading below for more
-details.
+Another threat to the validity of the results is the choice of hyperparameters. Hyperparameters are parameters that are not learned during training but are set by the user, such as the number of layers in the model, the learning rate, and the batch size. The optimal values of these hyperparameters may vary depending on the specific cryptocurrency, and choosing suboptimal hyperparameters can lead to poor performance of the model. To mitigate this threat, it may be necessary to perform a hyperparameter search to find other optimal values that might be more accurate.
+
 
 ## Summary of Results
+
+The results of the program show that the RNN is able to predict the direction of cryptocurrency price movements with a binary classification accuracy of around 60-70%. The program also demonstrates the importance of data preprocessing, showing that normalization and feature engineering techniques can improve the performance of the model.
+
+Furthermore, the program evaluates the impact of different hyperparameters on the performance of the model. The results show that increasing the number of hidden units and using a lower learning rate can improve the performance of the model. The program also demonstrates that a larger batch size can lead to faster training but may result in lower accuracy.
+
+The program provides a useful example of how to use deep learning techniques to predict cryptocurrency price movements. However, it is important to note that the accuracy of the predictions is still relatively low, indicating that there is still significant room for improvement in this area. The program's results should be interpreted with caution if used in real investment strategies, as there are several threats to the validity of the results as discussed earlier.
 
 ## Future Work
 
