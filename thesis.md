@@ -31,21 +31,9 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
-Table: Sample Returned Data From Binance API
+![Data From Binance API](images/table.png)
 
-|FIELD1|OpenTime           |BTC-USD_Open|BTC-USD_High|BTC-USD_Low|BTC-USD_Close|BTC-USD_volume|CloseTime              |BTC-QuoteAssetVolume|BTC-NumberOfTrades|BTC-TBBAV|BTC-TBQAV|BTC-ignore|
-|:------|:-------------------|:------------|:------------|:-----------|:-------------|:--------------|:-----------------------|:--------------------|:------------------|:---------|:---------|:----------|
-|0     |2019-09-23 04:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.001         |2019-09-23 04:57:17.115|9.93013             |1.0               |0.0      |0.0      |0.0       |
-|1     |2019-09-23 09:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 09:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|2     |2019-09-23 10:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 10:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|3     |2019-09-23 11:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 11:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|4     |2019-09-23 12:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 12:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|5     |2019-09-23 13:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 13:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|6     |2019-09-23 14:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 14:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|7     |2019-09-23 15:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 15:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|8     |2019-09-23 16:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 16:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|9     |2019-09-23 17:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 17:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
-|10    |2019-09-23 18:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 18:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+Sample returned data from Binance API as described above.
 
 ### Sorting and Cleaning Data
 	
@@ -73,11 +61,11 @@ The final step of the PCA model is the recast the data along the component’s a
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
-![Basic Sample Graph](images/graph2.png)
+![Basic Sample Graph](images/samplegraph1.png)
 
 This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
 
-![Sample Heat Map From Data](images/samplegraph1.png)
+![Sample Heat Map From Data](images/graph2.png)
 
 This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
@@ -85,7 +73,7 @@ This graph is more comprehensive than Figure 3.  This represents the data in a m
 
 The motivation for the project is the every increasing presence of cryptocurrency in our world.  As the technology develops, more and more uses for it are discovered.  Early research and development of tools like this are both something that is cutting edge.  Cryptocurrency markets behave similar to traditional stock markets.  However,  they are much more volatile as trading never stops.  Research like this stand to gain a better understanding of how these markets work. Bitcoin prices have grown more than 120% in 2016, reaching to a level of more than $20,000 from $900 in the year 2017. [@akyildirim2021research] As such, it has been experiencing an increase in possibilities for investors to make far greater gains than any other financial asset class.
 
-![Top Four Traded Coin's Market Activity[@akyildirim2021research]](images/market.png)
+![Top Four Traded Coin's Market Activity [@akyildirim2021research]](images/market.png)
 
 This shows that there is a future in cryptocurrency.  This is indicated by the increase of use of BTC, LTC, XRP, and ETH [@akyildirim2021research]. 
 
@@ -188,7 +176,7 @@ Maintenance is also a consideration when using Pionex. As a proprietary platform
 
 The general workflow of my project is only five steps.  Reducing the steps needed to take for a tool to work reduces the points of failure.  The first step is to collect the data from the Binance.US API.  Specifically, the eleven variables previously mentioned in chapter one.  Once, that data is collected it must be normalized and stored.  This allows the data to be worked with universally with my tool.  The data is then taken and given to the PCA model.  The data returned provides points on a graph to use as predictions later.  The data is then displayed on a graph using Plotly to create complex graphs.  Predictions then can be inferred from the given market data.  While this is a simple process, its simplicity is what makes it able to handle any coin on the Binance.US exchange.
 
-![Sample Tool Workflow ](images/Crypto flow.png) - Visualization of this tool's workflow as described above.
+![Sample Tool Workflow ](images/Cryptoflow.png) - Visualization of this tool's workflow as described above.
 
 ## Tools Used In This Project
 
