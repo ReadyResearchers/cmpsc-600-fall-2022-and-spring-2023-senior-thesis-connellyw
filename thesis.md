@@ -31,7 +31,7 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
-![Data From Binance API](images/table.png)
+![Data From Binance API ](images/table.png)
 
 Sample returned data from Binance API as described above.
 
@@ -49,7 +49,7 @@ It first starts by normalizing the data.  While we had already done this before,
 
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
-![PCA Model Example](images/pca.png)
+![PCA Model Example ](images/pca.png)
 
 PCA provides dimensionality-reduction great for the data being used in my research.  
 
@@ -61,11 +61,11 @@ The final step of the PCA model is the recast the data along the component’s a
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
-![Basic Sample Graph](images/samplegraph1.png)
+![Basic Sample Graph ](images/samplegraph1.png)
 
 This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
 
-![Sample Heat Map From Data](images/graph2.png)
+![Sample Heat Map From Data ](images/graph2.png)
 
 This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
@@ -73,7 +73,7 @@ This graph is more comprehensive than Figure 3.  This represents the data in a m
 
 The motivation for the project is the every increasing presence of cryptocurrency in our world.  As the technology develops, more and more uses for it are discovered.  Early research and development of tools like this are both something that is cutting edge.  Cryptocurrency markets behave similar to traditional stock markets.  However,  they are much more volatile as trading never stops.  Research like this stand to gain a better understanding of how these markets work. Bitcoin prices have grown more than 120% in 2016, reaching to a level of more than $20,000 from $900 in the year 2017. [@akyildirim2021research] As such, it has been experiencing an increase in possibilities for investors to make far greater gains than any other financial asset class.
 
-![Top Four Traded Coin's Market Activity [@akyildirim2021research]](images/market.png)
+![Top Four Traded Coin's Market Activity ](images/market.png)
 
 This shows that there is a future in cryptocurrency.  This is indicated by the increase of use of BTC, LTC, XRP, and ETH [@akyildirim2021research]. 
 
@@ -112,7 +112,8 @@ My project was influenced by the study, Forecasting cryptocurrency prices time s
 
 The project, Machine learning the cryptocurrency market, helped me figure out the scope of my project.  It studied 1,681 currencies using two different models.  The first one was long short-term memory models which it was found to be effective at predicting.  The other was a Batesian neural network. [@alessandretti2018research] While this study found that machine learning was able to predict market activity, it looked at way too many subjects for my research here.  Just to keep the scope of the project doable it was decided that this research would focus on just two currencies.  It also made me take into account transaction fees when trading.  This is important because it is something that must be overcome if profitable trading is going to be achieved.  I decided that this is something that I would like to examine in my own research. 
 
-![Cumulative Returns Found In Study [@akyildirim2021research]](images/research1.png)
+![Cumulative Returns Found In Study ](images/research1.png)
+
 The cumulative returns obtained under the Sharpe ratio optimization (a) and the geometric mean optimization
 (b) for the baseline (blue line), Method 1 (orange line), Method 2 (green line), and Method 3 (red line). Analyses are performed considering
 prices in BTC. [@akyildirim2021research] 
@@ -160,7 +161,9 @@ Another limitation of Gekko is its limited scalability.  The platform is designe
 
 Most of the important information needed to create market predictions is also kept behind a paywall.  Gekko plus offers a lot more information than what is included in the free version.  Since my project is free and offers all of this data for free, my tool will allow people not willing to pay a monthly subscription fee to conduct market research.  The tool’s creator also is no longer updating this tool.  This creates a limited lifespan of the product.  This is unlike mine where it is only limited by the Binance.US API. Providing it does not change, my tool should continue to work.
 
-![Gekko Trading Tool Dashboard ](images/gekko.png) - Tool offers an easy to use interface.  Very little presets offers so creation of trading algorithm is needed.
+![Gekko Trading Tool Dashboard ](images/gekko.png)
+
+Tool offers an easy to use interface.  Very little presets offers so creation of trading algorithm is needed.
 
 ### Pionex Crypto Trading Bot Tool
 
@@ -170,13 +173,17 @@ A limitation of the tool itself is its lack of transparency.  The platform opera
 
 Maintenance is also a consideration when using Pionex. As a proprietary platform, users are dependent on the provider for maintenance and updates. This can be an issue for users who are looking for a more flexible and customizable solution.  Unlike my tool which is static, and does not change.
 
-![Pionex Crypto Trading Bot Dashboard ](images/Pionex.png) - Dashboard offers a lot of information at first glance.  In the bottom right, different preset trading bots can be seen.  Note this is the paid version.
+![Pionex Crypto Trading Bot Dashboard ](images/Pionex.png)
+
+Dashboard offers a lot of information at first glance.  In the bottom right, different preset trading bots can be seen.  Note this is the paid version.
 
 ## My Tool Workflow
 
 The general workflow of my project is only five steps.  Reducing the steps needed to take for a tool to work reduces the points of failure.  The first step is to collect the data from the Binance.US API.  Specifically, the eleven variables previously mentioned in chapter one.  Once, that data is collected it must be normalized and stored.  This allows the data to be worked with universally with my tool.  The data is then taken and given to the PCA model.  The data returned provides points on a graph to use as predictions later.  The data is then displayed on a graph using Plotly to create complex graphs.  Predictions then can be inferred from the given market data.  While this is a simple process, its simplicity is what makes it able to handle any coin on the Binance.US exchange.
 
-![Sample Tool Workflow ](images/Cryptoflow.png) - Visualization of this tool's workflow as described above.
+![Sample Tool Workflow ](images/Cryptoflow.png)
+
+Visualization of this tool's workflow as described above.
 
 ## Tools Used In This Project
 
@@ -244,19 +251,27 @@ The tool also uses a binary classification accuracy metric to evaluate the accur
 
 ## Results
 
-![Epoch Accuracy ](images/epoch_accuracy.png) - Visualization of this tool's accuracy over a given amount of epochs.
+![Epoch Accuracy ](images/epoch_accuracy.png)
+
+Visualization of this tool's accuracy over a given amount of epochs.
 
 The results that I received here were kind of mixed.  For instance, BTC seemed to be highly predictable using this method.  ETH on the other hand barely achieved more than 50 percent accuracy most of the time.  In fact it ended with a 0.4849 accuracy in the end.  This is most likely due to the fact the BTC has a higher volume leading to more data for predicting the prices.  
 
-![Epoch Loss ](images/epoch_loss.png) - Visualization of this tool's inaccuracy over a given amount of epochs. 
+![Epoch Loss ](images/epoch_loss.png)
+
+Visualization of this tool's inaccuracy over a given amount of epochs. 
 
 As shown in the results, both were fairly inaccurate with greater than 60% chosen predictions being not profitable.  BTC was the most profitable and it averaged out to be 0.6738 inaccurate.  ETH after the 9th epoch ended up being 0.6925.  While these results are not that promising, it is important to note that different training data will make it perform differently. 
 
-![Accuracy VS Iterations ](images/acc_vs_iter.png) - Visualization of this tool's accuracy over the number of iterations.  Pink is ETH and Orange is BTC.
+![Accuracy VS Iterations ](images/acc_vs_iter.png)
+
+Visualization of this tool's accuracy over the number of iterations.  Pink is ETH and Orange is BTC.
 
 The accuracy over the iterations proved promising for BTC.  While this model only trained on 13,000 points, BTC continued to increased.  ETH on the other hand, did not start to see an increase until the 6th epoch until the accuracy returned to base line in the end.   Continuing to run the model with more points may provide better accuracy.
 
-![Inaccuracy VS Iterations ](images/loss_vs_iter.png) - Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
+![Inaccuracy VS Iterations ](images/loss_vs_iter.png)
+
+Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
 
 Over time for BTC, we can see a decrease in the amount of trades that would not be profitable.  This is promising results as it achieved a 0.678 lost profit rate.  It dropped drastically over the training epochs.  ETH on the other hand stayed around the same coming to a 0.6925 profit lost rate.  These results could show improvement if more points were trained.
 
