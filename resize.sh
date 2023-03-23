@@ -7,5 +7,5 @@ for image in $images; do
   if [[ ! -e $image ]];
     then continue;
   fi
-  convert $image -resize 724x724\> $image
+  convert $image -resize 468x468\> $image
 done

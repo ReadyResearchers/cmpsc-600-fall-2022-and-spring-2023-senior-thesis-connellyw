@@ -7,16 +7,18 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Install FUSE
+        run: sudo apt install fuse
       - name: Install pandoc
         uses: nikeee/setup-pandoc@v1
       - name: Install pandoc-citeproc
         run: sudo apt-get -qq update && sudo apt-get install -y pandoc-citeproc
-      - name: Install fuse
-        run: sudo apt-get install fuse libfuse2
       - name: Install tectonic
         uses: wtfjoke/setup-tectonic@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install imagemagick
+        run: sudo apt-get install imagemagick
       - name: Set up git repository
         uses: actions/checkout@v2
       - name: Resize images
@@ -43,4 +45,3 @@ jobs:
           asset_path: output/SeniorThesis.pdf
           asset_name: SeniorThesis.pdf
           asset_content_type: pdf
-          allowUpdates: "true"
