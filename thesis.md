@@ -31,6 +31,8 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
+Table: Data is listed in tables as described above.
+
 | **** | **OpenTime**        | **ETH-USD_Open** | **ETH-USD_High** | **ETH-USD_Low** | **ETH-USD_Close** | **ETH-USD_volume** | **CloseTime**           | **ETH-QuoteAssetVolume** | **ETH-NumberOfTrades** | **ETH-TBBAV** | **ETH-TBQAV** | **ETH-ignore** |
 |------|---------------------|------------------|------------------|-----------------|-------------------|--------------------|-------------------------|--------------------------|------------------------|---------------|---------------|----------------|
 | 0    | 2019-09-23 04:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.01               | 2019-09-23 04:57:17.144 | 2.0955                   | 1.0                    | 0.0           | 0.0           | 0.0            |
@@ -85,8 +87,6 @@ The final thing that is collected from the Binance API is the total buy quantity
 | 49   | 2019-09-25 09:00:00 | 166.11           | 167.82           | 166.11          | 167.78            | 3.31654            | 2019-09-25 09:59:59.999 | 554.2682518              | 6.0                    | 1.2475        | 208.3876563   | 0.0            |
 | 50   | 2019-09-25 10:00:00 | 168.24           | 168.45           | 167.17          | 167.17            | 10.45431           | 2019-09-25 10:59:59.999 | 1758.4627153             | 18.0                   | 3.60555       | 606.1605341   | 0.0            |
 
-Data is listed in tables as described above.
-
 ### Sorting and Cleaning Data
 	
 The first thing that is done to the data is that it is stored.  The file is generated specific to the coin the data is from.  This makes it easy for humans to read the data if they wanted to do it manually.  The data is added to the CSV files and given column header names.  These names are used to also help the files become more human readable.  This also doubles as column headers names that the program can work with later on.  
@@ -102,6 +102,7 @@ It first starts by normalizing the data.  While we had already done this before,
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
 ![PCA Model Example[@connelly2023research]](images/pca.png)
+
 PCA provides dimensionality-reduction great for the data being used in my research.  
 
 Now that the eigenvalues are in descending order, it will allow the program to find the components in order of significance.  Each of the eigenvectors are transformed in the program.  This is so that each component can be filter by usefulness.  The eigenvector with lesser significance will be removed from the PCA model.  It is important to note that doing this does create some data loss.  While this is important to take into consideration, the amount that was lost is not really a relevant problem.  
@@ -112,18 +113,21 @@ The final step of the PCA model is the recast the data along the component’s a
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
-![Basic Sample Graph[@connelly2023research]](images/graph2.png)
- - This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
+![Basic Sample Graph [@connelly2023research]](images/graph2.png)
 
-![Sample Heat Map From Data[@connelly2023research]](images/sample graph1.jpg)
- - This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
+This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
+
+![Sample Heat Map From Data [@connelly2023research]](images/sample graph1.png)
+
+This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
 ## Motivation
 
 The motivation for the project is the every increasing presence of cryptocurrency in our world.  As the technology develops, more and more uses for it are discovered.  Early research and development of tools like this are both something that is cutting edge.  Cryptocurrency markets behave similar to traditional stock markets.  However,  they are much more volatile as trading never stops.  Research like this stand to gain a better understanding of how these markets work. Bitcoin prices have grown more than 120% in 2016, reaching to a level of more than $20,000 from $900 in the year 2017. [@akyildirim2021research] As such, it has been experiencing an increase in possibilities for investors to make far greater gains than any other financial asset class.
 
 ![Top Four Traded Coin's Market Activity[@akyildirim2021research]](images/market.png)
-[@akyildirim2021research] - This shows that there is a future in cryptocurrency.  This is indicated by the increase of use of BTC, LTC, XRP, and ETH.
+
+This shows that there is a future in cryptocurrency.  This is indicated by the increase of use of BTC, LTC, XRP, and ETH [@akyildirim2021research]. 
 
 There are several real world potential justifications for creating a cryptocurrency prediction machine learning program to study the market. One is that it could help investors make more informed decisions about when to buy or sell different cryptocurrencies. Another is that it could help traders identify patterns and trends in the market that they might not otherwise be able to detect. Additionally, a machine learning program could potentially be used to analyze large amounts of data more quickly and accurately than a human could, which could lead to more accurate predictions about the future price of different cryptocurrencies.
 
