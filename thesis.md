@@ -31,61 +31,21 @@ Another variable that is useful to study market information is the Taker Buy Sel
 
 The final thing that is collected from the Binance API is the total buy quantity.  The data shows the total number of bought coins and buy orders on the marketplace.  This is another great indicator of liquidity.  It shows if a coin is active or not.  Collecting this data is important because later on it can be used in the machine learning algorithm to learn the market.
 
-Table: Data is listed in tables as described above.
+Table: Sample Returned Data From Binance API
 
-| **** | **OpenTime**        | **ETH-USD_Open** | **ETH-USD_High** | **ETH-USD_Low** | **ETH-USD_Close** | **ETH-USD_volume** | **CloseTime**           | **ETH-QuoteAssetVolume** | **ETH-NumberOfTrades** | **ETH-TBBAV** | **ETH-TBQAV** | **ETH-ignore** |
-|------|---------------------|------------------|------------------|-----------------|-------------------|--------------------|-------------------------|--------------------------|------------------------|---------------|---------------|----------------|
-| 0    | 2019-09-23 04:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.01               | 2019-09-23 04:57:17.144 | 2.0955                   | 1.0                    | 0.0           | 0.0           | 0.0            |
-| 1    | 2019-09-23 09:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 09:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 2    | 2019-09-23 10:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 10:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 3    | 2019-09-23 11:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 11:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 4    | 2019-09-23 12:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 12:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 5    | 2019-09-23 13:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 13:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 6    | 2019-09-23 14:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 14:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 7    | 2019-09-23 15:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 15:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 8    | 2019-09-23 16:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 16:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 9    | 2019-09-23 17:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 17:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 10   | 2019-09-23 18:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 18:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 11   | 2019-09-23 19:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 19:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 12   | 2019-09-23 20:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 20:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 13   | 2019-09-23 21:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 21:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 14   | 2019-09-23 22:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 22:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 15   | 2019-09-23 23:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-23 23:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 16   | 2019-09-24 00:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 00:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 17   | 2019-09-24 01:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 01:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 18   | 2019-09-24 02:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 02:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 19   | 2019-09-24 03:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 03:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 20   | 2019-09-24 04:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 04:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 21   | 2019-09-24 05:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 05:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 22   | 2019-09-24 06:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 06:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 23   | 2019-09-24 07:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 07:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 24   | 2019-09-24 08:00:00 | 209.55           | 209.55           | 209.55          | 209.55            | 0.0                | 2019-09-24 08:59:59.999 | 0.0                      | 0.0                    | 0.0           | 0.0           | 0.0            |
-| 25   | 2019-09-24 09:00:00 | 195.5            | 195.5            | 195.5           | 195.5             | 2.0                | 2019-09-24 09:59:59.999 | 391.0                    | 2.0                    | 0.0           | 0.0           | 0.0            |
-| 26   | 2019-09-24 10:00:00 | 195.5            | 195.5            | 190.81          | 191.06            | 76.64766           | 2019-09-24 10:59:59.999 | 14695.3285453            | 95.0                   | 46.84825      | 8977.7786849  | 0.0            |
-| 27   | 2019-09-24 11:00:00 | 190.49           | 192.59           | 187.52          | 192.59            | 103.28823          | 2019-09-24 11:59:59.999 | 19642.8219833            | 92.0                   | 24.29598      | 4633.483631   | 0.0            |
-| 28   | 2019-09-24 12:00:00 | 192.8            | 193.69           | 189.14          | 189.72            | 14.60915           | 2019-09-24 12:59:59.999 | 2810.1136369             | 28.0                   | 7.91926       | 1522.7467504  | 0.0            |
-| 29   | 2019-09-24 13:00:00 | 188.2            | 189.74           | 188.2           | 188.88            | 23.31221           | 2019-09-24 13:59:59.999 | 4417.47081               | 18.0                   | 21.78971      | 4129.2675384  | 0.0            |
-| 30   | 2019-09-24 14:00:00 | 188.01           | 188.15           | 164.7           | 165.57            | 247.42257          | 2019-09-24 14:59:59.999 | 43217.0770151            | 135.0                  | 55.535        | 9862.5562561  | 0.0            |
-| 31   | 2019-09-24 15:00:00 | 165.04           | 172.21           | 152.56          | 165.06            | 1174.9186          | 2019-09-24 15:59:59.999 | 190559.2155396           | 414.0                  | 385.5185      | 63238.6755773 | 0.0            |
-| 32   | 2019-09-24 16:00:00 | 165.22           | 167.56           | 160.83          | 164.91            | 414.292            | 2019-09-24 16:59:59.999 | 68512.4057856            | 271.0                  | 325.56472     | 53736.3561886 | 0.0            |
-| 33   | 2019-09-24 17:00:00 | 164.04           | 169.7            | 162.59          | 167.51            | 129.96333          | 2019-09-24 17:59:59.999 | 21614.423552             | 85.0                   | 127.48577     | 21201.3624079 | 0.0            |
-| 34   | 2019-09-24 18:00:00 | 167.54           | 169.57           | 167.19          | 168.95            | 34.4468            | 2019-09-24 18:59:59.999 | 5769.2128604             | 13.0                   | 2.49717       | 420.9042068   | 0.0            |
-| 35   | 2019-09-24 19:00:00 | 170.67           | 170.67           | 167.09          | 167.09            | 3.46653            | 2019-09-24 19:59:59.999 | 587.5069939              | 9.0                    | 1.62756       | 275.9574705   | 0.0            |
-| 36   | 2019-09-24 20:00:00 | 166.84           | 168.9            | 166.82          | 168.9             | 2.6929             | 2019-09-24 20:59:59.999 | 452.3380547              | 8.0                    | 0.35756       | 59.6481592    | 0.0            |
-| 37   | 2019-09-24 21:00:00 | 169.11           | 172.79           | 169.08          | 172.79            | 9.26086            | 2019-09-24 21:59:59.999 | 1572.5239994             | 10.0                   | 5.26086       | 893.7939994   | 0.0            |
-| 38   | 2019-09-24 22:00:00 | 174.15           | 174.15           | 172.17          | 172.17            | 5.73958            | 2019-09-24 22:59:59.999 | 988.6301766              | 2.0                    | 5.51398       | 949.3419366   | 0.0            |
-| 39   | 2019-09-24 23:00:00 | 171.31           | 171.85           | 169.75          | 169.75            | 3.52               | 2019-09-24 23:59:59.999 | 601.9651                 | 4.0                    | 1.52          | 260.3651      | 0.0            |
-| 40   | 2019-09-25 00:00:00 | 169.2            | 169.2            | 167.93          | 167.93            | 5.36373            | 2019-09-25 00:59:59.999 | 901.193116               | 2.0                    | 0.0           | 0.0           | 0.0            |
-| 41   | 2019-09-25 01:00:00 | 167.87           | 168.77           | 167.87          | 168.77            | 3.36449            | 2019-09-25 01:59:59.999 | 565.6969363              | 2.0                    | 0.0           | 0.0           | 0.0            |
-| 42   | 2019-09-25 02:00:00 | 168.92           | 169.62           | 168.5           | 168.5             | 9.0                | 2019-09-25 02:59:59.999 | 1522.12                  | 9.0                    | 4.0           | 675.79        | 0.0            |
-| 43   | 2019-09-25 03:00:00 | 167.44           | 167.44           | 167.34          | 167.34            | 2.0                | 2019-09-25 03:59:59.999 | 334.78                   | 2.0                    | 1.0           | 167.34        | 0.0            |
-| 44   | 2019-09-25 04:00:00 | 164.13           | 164.13           | 163.18          | 163.99            | 7.37132            | 2019-09-25 04:59:59.999 | 1208.8088154             | 4.0                    | 0.85734       | 140.3055362   | 0.0            |
-| 45   | 2019-09-25 05:00:00 | 164.97           | 166.0            | 164.97          | 166.0             | 0.94768            | 2019-09-25 05:59:59.999 | 157.1135356              | 2.0                    | 0.94768       | 157.1135356   | 0.0            |
-| 46   | 2019-09-25 06:00:00 | 167.41           | 167.92           | 167.41          | 167.92            | 0.75314            | 2019-09-25 06:59:59.999 | 126.2734892              | 2.0                    | 0.37318       | 62.6643856    | 0.0            |
-| 47   | 2019-09-25 07:00:00 | 168.31           | 168.31           | 166.73          | 166.73            | 2.23888            | 2019-09-25 07:59:59.999 | 375.4338417              | 5.0                    | 1.43325       | 240.726208    | 0.0            |
-| 48   | 2019-09-25 08:00:00 | 165.93           | 166.92           | 165.72          | 166.92            | 41.35238           | 2019-09-25 08:59:59.999 | 6867.8165526             | 47.0                   | 36.17196      | 6007.6270587  | 0.0            |
-| 49   | 2019-09-25 09:00:00 | 166.11           | 167.82           | 166.11          | 167.78            | 3.31654            | 2019-09-25 09:59:59.999 | 554.2682518              | 6.0                    | 1.2475        | 208.3876563   | 0.0            |
-| 50   | 2019-09-25 10:00:00 | 168.24           | 168.45           | 167.17          | 167.17            | 10.45431           | 2019-09-25 10:59:59.999 | 1758.4627153             | 18.0                   | 3.60555       | 606.1605341   | 0.0            |
+|FIELD1|OpenTime           |BTC-USD_Open|BTC-USD_High|BTC-USD_Low|BTC-USD_Close|BTC-USD_volume|CloseTime              |BTC-QuoteAssetVolume|BTC-NumberOfTrades|BTC-TBBAV|BTC-TBQAV|BTC-ignore|
+|:------|:-------------------|:------------|:------------|:-----------|:-------------|:--------------|:-----------------------|:--------------------|:------------------|:---------|:---------|:----------|
+|0     |2019-09-23 04:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.001         |2019-09-23 04:57:17.115|9.93013             |1.0               |0.0      |0.0      |0.0       |
+|1     |2019-09-23 09:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 09:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|2     |2019-09-23 10:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 10:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|3     |2019-09-23 11:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 11:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|4     |2019-09-23 12:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 12:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|5     |2019-09-23 13:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 13:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|6     |2019-09-23 14:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 14:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|7     |2019-09-23 15:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 15:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|8     |2019-09-23 16:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 16:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|9     |2019-09-23 17:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 17:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
+|10    |2019-09-23 18:00:00|9930.13     |9930.13     |9930.13    |9930.13      |0.0           |2019-09-23 18:59:59.999|0.0                 |0.0               |0.0      |0.0      |0.0       |
 
 ### Sorting and Cleaning Data
 	
@@ -101,7 +61,7 @@ It first starts by normalizing the data.  While we had already done this before,
 
 The next step of the PCA model is computing the eigenvectors and eigenvalues.  It is important to note that there is an issue after the principal components are created.  Most of the data points are compressed into the first component.  This is because most of the data is not correlated with the initial data.  However, it is important to organize the data this way because it is a great way to reduce the dimensions of data with out losing much information.  By discarding the low correlated data, it removes a lot of noise in the data.  The PCA model constructs the principal components by first looking at the largest possible variance.  It then checks perpendicularly for the next highest variance.  This does this for all of the number of variables.  In our two dimensional matrix now, we are now able to rank the eigenvalues.  This is done by dividing the the eigenvalues of each of the components by the sum of the eigenvalues.  This is done for all of the data points.
 
-![PCA Model Example[@connelly2023research]](images/pca.png)
+![PCA Model Example](images/pca.png)
 
 PCA provides dimensionality-reduction great for the data being used in my research.  
 
@@ -113,11 +73,11 @@ The final step of the PCA model is the recast the data along the component’s a
 
 One the PCA model is complete the data is ready to displayed in a human readable format.  This is done using a custom graph using the Python package Plotly.  This is a great tool is visualize the data is a easy to read format for the tool’s user.  The first graph that is generated is the mean of all of the data.  This is a good way to figure out what the averages of all of the points are.  The next graph that is generated is the median.  This is something is also good to visualize the data.  The third and final graph that is created is the graph that is the most useful to visualize the data.  This graph shows the points when investing during that time frame would be profitable or not.  This is shows as a heat map where the times that a person would have made negative money on the left and the positive money on the right.  This can be view and worked with to determine the most efficient and effective way to invest.
 
-![Basic Sample Graph [@connelly2023research]](images/graph2.png)
+![Basic Sample Graph](images/graph2.png)
 
 This graph is basic as it just displays all of the points the PCA model returned.  While a good start, there are better ways to display the information.
 
-![Sample Heat Map From Data [@connelly2023research]](images/sample graph1.png)
+![Sample Heat Map From Data](images/samplegraph1.png)
 
 This graph is more comprehensive than Figure 3.  This represents the data in a more concise way for a user to view. The right side represents the times when if someone would have invested they would have made money.  The inverse in true for the left side. 
 
@@ -212,7 +172,7 @@ Another limitation of Gekko is its limited scalability.  The platform is designe
 
 Most of the important information needed to create market predictions is also kept behind a paywall.  Gekko plus offers a lot more information than what is included in the free version.  Since my project is free and offers all of this data for free, my tool will allow people not willing to pay a monthly subscription fee to conduct market research.  The tool’s creator also is no longer updating this tool.  This creates a limited lifespan of the product.  This is unlike mine where it is only limited by the Binance.US API. Providing it does not change, my tool should continue to work.
 
-![Gekko Trading Tool Dashboard[@connelly2023research]](images/gekko.png) - Tool offers an easy to use interface.  Very little presets offers so creation of trading algorithm is needed.
+![Gekko Trading Tool Dashboard ](images/gekko.png) - Tool offers an easy to use interface.  Very little presets offers so creation of trading algorithm is needed.
 
 ### Pionex Crypto Trading Bot Tool
 
@@ -222,13 +182,13 @@ A limitation of the tool itself is its lack of transparency.  The platform opera
 
 Maintenance is also a consideration when using Pionex. As a proprietary platform, users are dependent on the provider for maintenance and updates. This can be an issue for users who are looking for a more flexible and customizable solution.  Unlike my tool which is static, and does not change.
 
-![Pionex Crypto Trading Bot Dashboard[@connelly2023research]](images/Pionex.png) - Dashboard offers a lot of information at first glance.  In the bottom right, different preset trading bots can be seen.  Note this is the paid version.
+![Pionex Crypto Trading Bot Dashboard ](images/Pionex.png) - Dashboard offers a lot of information at first glance.  In the bottom right, different preset trading bots can be seen.  Note this is the paid version.
 
 ## My Tool Workflow
 
 The general workflow of my project is only five steps.  Reducing the steps needed to take for a tool to work reduces the points of failure.  The first step is to collect the data from the Binance.US API.  Specifically, the eleven variables previously mentioned in chapter one.  Once, that data is collected it must be normalized and stored.  This allows the data to be worked with universally with my tool.  The data is then taken and given to the PCA model.  The data returned provides points on a graph to use as predictions later.  The data is then displayed on a graph using Plotly to create complex graphs.  Predictions then can be inferred from the given market data.  While this is a simple process, its simplicity is what makes it able to handle any coin on the Binance.US exchange.
 
-![Sample Tool Workflow[@connelly2023research]](images/Crypto flow.png) - Visualization of this tool's workflow as described above.
+![Sample Tool Workflow ](images/Crypto flow.png) - Visualization of this tool's workflow as described above.
 
 ## Tools Used In This Project
 
@@ -296,19 +256,19 @@ The tool also uses a binary classification accuracy metric to evaluate the accur
 
 ## Results
 
-![Epoch Accuracy[@connelly2023research]](images/epoch_accuracy.png) - Visualization of this tool's accuracy over a given amount of epochs.
+![Epoch Accuracy ](images/epoch_accuracy.png) - Visualization of this tool's accuracy over a given amount of epochs.
 
 The results that I received here were kind of mixed.  For instance, BTC seemed to be highly predictable using this method.  ETH on the other hand barely achieved more than 50 percent accuracy most of the time.  In fact it ended with a 0.4849 accuracy in the end.  This is most likely due to the fact the BTC has a higher volume leading to more data for predicting the prices.  
 
-![Epoch Loss[@connelly2023research]](images/epoch_loss.png) - Visualization of this tool's inaccuracy over a given amount of epochs. 
+![Epoch Loss ](images/epoch_loss.png) - Visualization of this tool's inaccuracy over a given amount of epochs. 
 
 As shown in the results, both were fairly inaccurate with greater than 60% chosen predictions being not profitable.  BTC was the most profitable and it averaged out to be 0.6738 inaccurate.  ETH after the 9th epoch ended up being 0.6925.  While these results are not that promising, it is important to note that different training data will make it perform differently. 
 
-![Accuracy VS Iterations[@connelly2023research]](images/acc_vs_iter.png) - Visualization of this tool's accuracy over the number of iterations.  Pink is ETH and Orange is BTC.
+![Accuracy VS Iterations ](images/acc_vs_iter.png) - Visualization of this tool's accuracy over the number of iterations.  Pink is ETH and Orange is BTC.
 
 The accuracy over the iterations proved promising for BTC.  While this model only trained on 13,000 points, BTC continued to increased.  ETH on the other hand, did not start to see an increase until the 6th epoch until the accuracy returned to base line in the end.   Continuing to run the model with more points may provide better accuracy.
 
-![Inaccuracy VS Iterations[@connelly2023research]](images/loss_vs_iter.png) - Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
+![Inaccuracy VS Iterations ](images/loss_vs_iter.png) - Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
 
 Over time for BTC, we can see a decrease in the amount of trades that would not be profitable.  This is promising results as it achieved a 0.678 lost profit rate.  It dropped drastically over the training epochs.  ETH on the other hand stayed around the same coming to a 0.6925 profit lost rate.  These results could show improvement if more points were trained.
 
