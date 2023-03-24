@@ -295,7 +295,7 @@ The accuracy over the iterations proved promising for BTC.  While this model onl
 
 Visualization of this tool's inaccuracy over the number of iterations. Pink is ETH and Orange is BTC.
 
-Over time for BTC, we can see a decrease in the number of trades that would not be profitable.  This is a promising result as it achieved a 0.678 lost profit rate.  It dropped drastically over the training epochs.  ETH on the other hand stayed around the same coming to a 0.6925 profit lost rate.  These results could show improvement if more points were trained.
+Over time for BTC, we can see a decrease in the number of trades that would not be profitable.  This is a promising result as it achieved a 0.678 lost profit rate.  It dropped drastically over the training epochs.  ETH on the other hand stayed around the same coming to a 0.6925 profit lost rate.  It is important to note that these results could show improvement if more points were trained.
 
 
 ## Threats to Validity
@@ -317,7 +317,7 @@ The program provides a useful example of how to use deep learning techniques to 
 
 Due to time constraints, the scope of this project needed to be feasible. Due to this, the research that was conducted has room for improvement. The current implementation only uses data for two cryptocurrencies (Bitcoin and Ethereum). However, you could extend the project by incorporating data from multiple cryptocurrencies and training the model to predict their prices.
 
-Another Way to expand upon this research is to research more efficient hyperparameters for the machine learning model. In the current implementation, the hyperparameters used in the model are fixed. Different hyperparameters might result in better performance. Many more hyperparameters are still being developed and are competing for the most accurate performance.  Different hyperparameters could be tested in the future to see if they produce more accurate results.
+Another way to expand upon this research is to research more efficient hyperparameters for the machine learning model. In the current implementation, the hyperparameters used in the model are fixed. Different hyperparameters might result in better performance. Many more hyperparameters are still being developed and are competing for the most accurate performance.  Different hyperparameters could be tested in the future to see if they produce more accurate results.
 
 The research uses a simple RNN (Recurrent Neural Network) architecture. However, there are many different types of RNNs, such as Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRUs), which might perform better on this task. Another possible future work could be to experiment with different RNN architectures and compare their performance.
 
@@ -329,7 +329,7 @@ The RNN is trained on historical data and uses it to make predictions about futu
 
 The model uses the Keras library with a TensorFlow backend to construct the RNN. The RNN is trained on Bitcoin and Ethereum price data and uses a sequence-to-sequence model with a sequence length of 60 days, to predict future prices. The model is trained over multiple epochs to improve its accuracy, and its performance is evaluated using various metrics such as mean squared error (MSE) and root mean squared error (RMSE).
 
-The experimental outcomes show that the RNN model is able to make accurate predictions about future cryptocurrency prices. The model achieves an RMSE of around 300-400, which indicates that the model is making predictions that are relatively close to the actual prices. Another important idea to note is the returns must overcome the trading fees of the exchange. Smaller amounts may not be as viable as larger amounts when trading due to the need for the trades to overcome exchange fees.  The research concludes that RNNs can be effective tools for predicting cryptocurrency prices; further research is needed to fully understand the complexities of cryptocurrency markets and improve the accuracy of the predictions.
+The experimental outcomes show that the RNN model is able to make accurate predictions about future cryptocurrency prices. The model achieves an RMSE of around 300-400, which indicates that the model is making predictions that are relatively close to the actual prices. Another important idea to note is the returns must overcome the trading fees of the exchange. Smaller amounts may not be as viable as larger amounts when trading due to the need for the trades to overcome exchange fees.  Minimum limits on currencies are also another factor that must be considered. Creating real market orders using this model would probably not be profitable. The research concludes that RNNs can be effective tools for predicting cryptocurrency prices; further research is needed to fully understand the complexities of cryptocurrency markets and improve the accuracy of the predictions.
 
 ## Ethical Recommendations
 
