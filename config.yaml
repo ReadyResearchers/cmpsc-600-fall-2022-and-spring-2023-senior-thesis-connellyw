@@ -2,10 +2,10 @@
 # https://maehr.github.io/academic-pandoc-template/
 
 # Project-specific values
-title: 'CoinComplete: A Principle Component Analysis Machine Learning Tool used for Cryptocurrency investing.'
+title: 'CoinComplete: A Principle Component Analysis Machine Learning Tool Used For Cryptocurrency Investing.'
 author: 'Liam Connelly'
-date: '20 December 2022'
-firstreader: 'Gregory M. Kapfhammer'
+date: '24 March 2023'
+firstreader: 'Dr. Gregory M. Kapfhammer'
 secondreader: 'Douglas Luman'
 logo: 'images/logo'
 
