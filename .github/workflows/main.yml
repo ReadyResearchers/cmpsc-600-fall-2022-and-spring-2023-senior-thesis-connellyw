@@ -21,8 +21,6 @@ jobs:
         run: sudo apt-get install imagemagick
       - name: Set up git repository
         uses: actions/checkout@v2
-      - name: Resize images
-        run: bash resize.sh
       - name: Convert with pandoc
         run: mkdir log && mkdir output && pandoc --defaults pdf.yaml --to latex --metadata-file config.yaml --lua-filter .filters/abstract-to-meta.lua --template template/thesis.tex
       - name: Create release
