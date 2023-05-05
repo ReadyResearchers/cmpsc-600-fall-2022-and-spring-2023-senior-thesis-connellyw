@@ -6,7 +6,9 @@ The project is a working Python program that uses Principle Component Analysis (
 
 Graphs are then created to display the information collected on the cryptocurrency. Using Plotly graphs, the program can create graphs to display the mean and distribution of positive and negative values. From this, a user can determine the best times when to invest and when not to. This is important because any edge trading in the market will lead to a competitive advantage causing potential monetary gain. It is a possible solution to accurately analyze the market.
 
-Challenges have arisen throughout this research. For instance, deciding how large of a research project that could be made. Looking through what other people had researched, narrowed down the CoinComplete research data so that this research could focus on the data with the amount of time allotted. Problems occurred throughout this research since it is new technology. There is not much information on how to work with some of the packages implemented into CoinComplete tool. For this reason, most of the research time was figuring out how the tools worked. Combining them all also large posed a challenge as well.
+A machine learning model is then applied to this data. Specifically, a Recurring Neural Network is trained to predict the future market values of Ethereum and Bitcoin. These predictions are then validated to help the model verify the prediction of these results. After this, the model is then applied to a live market for trading.
+
+Challenges have arisen throughout this research. For instance, deciding how large of a research project could be made. Looking through what other people had researched, narrowed down the CoinComplete research data so that this research could focus on the data with the amount of time allotted. Problems occurred throughout this research since it is new technology. There is not much information on how to work with some of the packages implemented into CoinComplete tool. For this reason, most of the research time was figuring out how the tools worked. Combining them all also large posed a challenge as well.
 
 The ethical considerations for this project include how this would affect the market. Having something that was proven successful like this could lead to an unfair advantage. This would, if done on a large enough scale, could disrupt the market that the program had studied. This would make the program not invest based on the new market but invest in the one it had studied. This might cause problems with the program. Another ethical consideration is how users would overuse a system like this and potentially crash the entire network. If something like this became too popular and the Binance infrastructure is unable to support the traffic, it could lead to issues. Looking at these issues closely in the paper will reveal how these were addressed issues in the research.
 
@@ -41,7 +43,7 @@ The first thing that is done to the data is that it is stored. The file is gener
 
 ### Working With the Data
 
-Once the data is gathered from the Binance API and normalized, it can now be used in the program. The files are first read into the Python program. This is done each time separately for each coin. This allows us to control over seeing a coin’s market data specifically. It is an important step of the program which allows the separation of coins so that markets can be studied individually. The program takes a few seconds to preprocess the data. Once this is done, data must now be loaded into data frames. For variables like open time and close time, it is also necessary to do a little preprocessing. This is because the data collected off of the Binance API is not the easiest for a program to read. The data must be normalized first into a standard format so that it is easier to work with the data later. The same thing must be done for the variable time too. However, this is something that just cannot be pulled from the Binance API. First, the open variable is added to the respective hours that have passed since the last check. This is then divided by the close time. This gives the data frames something to reference when going back to check the data.
+Once the data is gathered from the Binance API and normalized, it can now be used in the program. The files are first read into the Python program. This is done each time separately for each coin. This allows us to control overseeing a coin’s market data specifically. It is an important step of the program which allows the separation of coins so that markets can be studied individually. The program takes a few seconds to preprocess the data. Once this is done, data must now be loaded into data frames. For variables like open time and close time, it is also necessary to do a little preprocessing. This is because the data collected off of the Binance API is not the easiest for a program to read. The data must be normalized first into a standard format so that it is easier to work with the data later. The same thing must be done for the variable time too. However, this is something that just cannot be pulled from the Binance API. First, the open variable is added to the respective hours that have passed since the last check. This is then divided by the close time. This gives the data frames something to reference when going back to check the data.
 
 The machine learning algorithm can now be loaded with data. Using the sklearn package we can use some machine learning algorithms without doing much of the behind-the-scenes work. This is nice because it is just another thing that does not have to be on implementing by hand. Loading the data is as simple as taking the data frame and shoving the data into it. From here, we are first able to start working with the PCA model. It is important to note what the Principle Component analysis model does. 
 
@@ -259,13 +261,13 @@ The model is then applied to market segments broken down into predicting the dat
 
 ![Sample Tool Workflow ](images/Cryptoflow.png)
 
-Visualization of this tool's workflow as described above.
+Visualization of this tool's workflow as described above and how each part interacts with each other.
 
 ## Tools Used In This Project
 
 ### Binance.US Python API
 
-To understand why this was API was chosen over others, the features of the tool must be examined. The Binance.US API utilizes the REST (Representational State Transfer) protocol, which is a widely adopted standard for web-based APIs. This protocol enables the API to receive requests and send responses over the internet using the standard HTTP (Hypertext Transfer Protocol) methods, such as GET, POST, and PUT.
+To understand why this API was chosen over others, the features of the tool must be examined. The Binance.US API utilizes the REST (Representational State Transfer) protocol, which is a widely adopted standard for web-based APIs. This protocol enables the API to receive requests and send responses over the internet using the standard HTTP (Hypertext Transfer Protocol) methods, such as GET, POST, and PUT.
 
 When using the Binance.US Python API, developers must first obtain an API key from the Binance.US website. The API key is used to authenticate the API requests and to ensure that only authorized users have access to the platform's data and functionality. Once the API key has been obtained, developers can use it in their Python code to interact with the Binance.US platform. For example, they can use the API to retrieve information about their account, such as the balance of a particular asset, the current price of an asset, or the list of open orders. The API also provides access to real-time market data, such as the price of an asset, the 24-hour volume, and the order book. This data can be used by developers to build trading algorithms and make informed trading decisions.
 
@@ -294,6 +296,44 @@ TensorFlow plays a critical role in the program by providing the machine learnin
 For the trading program, TensorFlow is used as the underlying library for the machine learning model that is used to make predictions on market data. Specifically, we use a Sequential model from the Keras API, which is a high-level interface for building neural networks in TensorFlow. The Sequential model allows us to create a neural network by stacking layers on top of each other. In the program, we use two layers: an LSTM layer and a Dense layer. The LSTM layer is a type of recurrent neural network (RNN) that is well-suited for processing sequential data, such as time series data. The Dense layer is a standard fully connected layer that is often used for classification or regression tasks.
 
 Once the model has been trained on historical market data, we can use it to make predictions on live market data. Specifically, we use the "predict()" method of the model to generate a prediction for the next time step. We then use this prediction to decide whether to place a buy or sell order based on market data from the last 24 hours.
+
+## Code Segment
+
+Most of this tool uses the same dependencies to accomplish different tasks. From the data processor file to the live trading script, it is interacting with data, TensorFlow models, pandas, and Scikit-learn. The reason for this is to connect all the tools in way the data can be reused. The used dependencies are listed below:
+
+![Tool Dependencies ](images/depends.png)
+
+Dependencies used to operate CoinComplete
+
+Each import provides a vital tool used in the CoinComplete tool. All were necessary to complete this computational artifact.
+
+- pandas is a library that provides data structures for efficiently storing and analyzing large amounts of tabular data, such as market data being looked at in CoinComplete. It offers features such as data alignment, filtering, and merging. This is especially useful when working with large data sets such as market data. Without this tool, data normalization would not have been possible.
+
+- binance.client is a Python API client for the Binance cryptocurrency exchange. It allows users to conduct spot trades and retrieve market data with Binance's trading platform and access features such as trading and order management. This is where the data that CoinComplete uses to train the machine learning model and create Plotly graphs.
+
+- collections provides alternative data structures to the ones that are already built-in to Python, such as the deque, which allows for efficient appending and popping from both ends of the data structure. This is necessary when working with larger data sets since this makes retrieving data from the arrays much easier.
+
+- random provides a suite of functions for generating random numbers and selecting random elements from lists. This is used to test the validity of the data in a way that in unbiased.
+
+- numpy (alias np) is a library for numerical computing in Python. It provides fast and efficient functions for working with arrays of numeric data. It is useful in statistical analysis since it allows for easy entry and retrieval of a data set. CoinComplete uses to store and retrieve market data values.
+
+- tensorflow is an open-source machine-learning library for Python. It provides a set of tools for building and training neural networks, including APIs for defining, compiling, and executing computational graphs. This is what CoinComplete used to build and validate the model. This is a vital component of the machine learning process.
+
+- tensorflow.keras.models is a high-level API for defining and training machine learning models using Keras, a widely used Python library for building deep learning models. This is used to create the validation metric models used in CoinComplete. This creates the visualization of the model needed to verify the validity of the model's results.
+
+- tensorflow.keras.layers gives a set of pre-built neural network layers, such as Dense (fully connected layer), Dropout (regularization layer), and LSTM (Long Short-Term Memory layer). These are what CoinComplete uses to create the model and train it. Without this, the program could not train using the LSTM methodology.
+
+- tensorflow.keras.optimizers allows for a set of optimization algorithms for training neural networks, such as the Adam optimizer. This is important because without this, CoinComplete could not learn from its previous prediction attempts.
+
+- tensorflow.compat.v1.keras.layers gives access to older Keras layers that have been removed in newer versions of TensorFlow, such as CuDNNLSTM (LSTM layer optimized for running on GPUs). This is important for backward compatibility so the program does not break in the future. This is a static dependency.
+
+- tensorflow.keras.callbacks is used because it allows a set of callback functions that can be used to monitor the training of a neural network and perform actions such as saving model checkpoints or logging performance metrics. This is useful when trying to recall the model to implement it to live testing.
+
+- time provides functions for working with time, such as measuring elapsed time or converting between different time representations. Similar to date time this is also used to normize and interpret the times so that the model can understand them. This is important so that the time is human-readable.
+
+- datetime provides classes for working with dates and times, such as formatting dates as strings or performing arithmetic on dates. This is used to normalize the time so that all programs in CoinComplete can use the date and time as an index.
+
+- sklearn.preprocessing is a module within the scikit-learn library that provides functions for preprocessing data to a given range or encoding categorical variables. This is used in CoinComplete to preprocess all of the data in the CSV file retrieved from the Binance.US Python API.
 
 ## Addressing Ethical Considerations
 
